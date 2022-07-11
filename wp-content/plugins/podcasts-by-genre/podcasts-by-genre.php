@@ -18,10 +18,18 @@ require_once('admin-panel.php');
  * @version: 1.0.0
  */
 
-function show_podcast()
+function show_podcast($atts)
 {
+    $args = shortcode_atts (
+        array (
+            'quantity' => 10
+        ), $atts);
+
     //create a new WP_Query with post type Podcast
-    $the_query = new WP_Query(array('post_type' => 'podcast'));
+    $the_query = new WP_Query(array(
+        'post_type' => 'podcast',
+        'posts_per_page' => $atts['quantity'] 
+    ));
 
     //the html outside the look at the beginning
     $start_html = '<div class="container podcast-container-plugin justify-content-center pt-5 pl-5" >';
@@ -50,7 +58,7 @@ function show_podcast()
                         </div>
                         <div class="col-sm-10">
                             <div class="row podcast-item">
-                                <div class="col-4 col-sm-2"><img class="podcast-image" src=' . $values['podcast_image'][0] . '></div>
+                                <div class="col-4 col-sm-2"><img class="podcast-image" src=' . $values['podcast_image'][0] . ' alt="' . get_the_title() . '"></div>
                                 <div class="col-8 col-sm-5">
                                     <h3 class="podcast-title"> ' . get_the_title() . '</h3>
                                     <p class="podcast-publisher">by <span class="podcast-publisher-color">' . $values['podcast_publisher'][0] . '</span></p>   
@@ -343,7 +351,7 @@ function save_data_from_extra_fields($post_id)
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
 
     // if our current user can't edit this post, Fail  
-   // if (!current_user_can('edit_post')) return;
+    // if (!current_user_can('edit_post')) return;
 
     // now we can actually save the data  
     $allowed = array(

@@ -136,7 +136,6 @@ function bones_scripts_and_styles() {
 		// register bootstrap 5.2
 		wp_register_style( 'bootstrapV5.2', get_stylesheet_directory_uri() . '/library/css/bootstrap.min.css', array(), '', 'all' );
 		
-
 		// ie-only style sheet
 		wp_register_style( 'bones-ie-only', get_stylesheet_directory_uri() . '/library/css/ie.css', array(), '' );
 

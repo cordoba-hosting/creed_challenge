@@ -20,6 +20,7 @@ require_once('admin-panel.php');
 
 function show_podcast($atts)
 {
+    //get arguments of short code
     $args = shortcode_atts (
         array (
             'quantity' => 10
@@ -350,10 +351,7 @@ function save_data_from_extra_fields($post_id)
     // Verify if we're doing an auto save  
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
 
-    // if our current user can't edit this post, Fail  
-    // if (!current_user_can('edit_post')) return;
-
-    // now we can actually save the data  
+       // now we can actually save the data  
     $allowed = array(
         'a' => array( // on allow a tags  
             'href' => array() // and those anchors can only have href attribute  

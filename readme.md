@@ -40,7 +40,7 @@ Presumption: file contains valid podcast information
 ### Short Code
 The plugin is used through the shortcode [show_podcast] which must be used in a wordpress page that uses the "Custom Page for Challenge" template.
 
-Through the Chort Code you can indicate the quantity of podcast to show. By default the plugin shows 10 podcasts. The syntax to indicate a different number is  [show_podcast quantity=15]
+Through the Short Code you can indicate the quantity of podcast to show. By default the plugin shows 10 podcasts. The syntax to indicate a different number is  [show_podcast quantity=15]
 
 The short code only gets styling from the theme if it is used through a wordpress page with the "Custom Page for Challenge" page template.
 
@@ -49,3 +49,4 @@ The short code only gets styling from the theme if it is used through a wordpres
 - ***Structure Validation***  of the json file.
 - ***CSRF Protection*** to protect plugin import form submit
 - Creation of file ***uninstall.php***: To clean the database of podcasts created or not when the plugin is removed or uninstalled.
+- Podcast Record Pagination
